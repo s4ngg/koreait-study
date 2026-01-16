@@ -1,0 +1,54 @@
+p {
+    color:blueviolet; 
+    font-size: 26px;
+}
+
+/* 아이디 선택자 (#) */
+#p-tag-id { /* id는 고유해서 맨 위에 오는거만 해당 = css는 가능한디 자바스크립트에선 안됨*/
+    color:rgb(255, 127, 165, 0.2); 
+}
+
+/* 클래스 선택자 (.) */
+.p-tag-text {
+    color:brown
+} 
+
+.text-small{ /* 자주 쓰는 형식 class로 지정해서 편하게 사용 */
+    font-size: 14px;
+}
+
+/* 
+    div > h4 자식 선택자
+    div h4   후손 선택자
+*/
+
+div > h4 { /* div (>) h4 로 바로 아래있는 자식 태그만 선택 */
+    background-color: antiquewhite;
+}
+
+/* 
+    h3 ~ p 동위 선택자 (같은 위치에 있는 p태그 전부 다 적용)
+    h3 + p 동위 선택자 (같은 위치에 있는 p태그 바로 뒤에 있는 1개만 적용)
+*/
+
+h3 ~ p {
+    color: cadetblue;
+    font-style: italic;
+    text-decoration-line: line-through;
+}
+
+h3 + p {
+    color: chocolate;
+}
+
+.btn:hover{
+    background-color: chartreuse;
+}
+
+.btn:active{
+    background-color: aqua;
+}
+
+input:focus{
+    border: 5px dotted red;
+}

@@ -1,0 +1,17 @@
+.parent {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    font-size: 20px;
+    font-style: italic; /* 기울기 */
+    font-weight: 800; /* 굵기 */
+    text-align: center; /* 중앙정렬 */
+    text-decoration: underline;
+}
+
+.child {
+    width: 50%;
+    height: 50%;
+    background-color: blueviolet;
+
+}
