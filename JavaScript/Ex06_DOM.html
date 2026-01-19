@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "parent">
+        <p>첫번째 p태그</p>
+        <p>두번째 p태그</p>
+        <!-- 주석입니다. -->
+        텍스트 노드입니다.
+    </div>
+
+    <script>
+        let parentDiv = document.getElementById("parent");
+        let nodes = parentDiv.childNodes; // childNodes = 자식요소를 배열 형태로 다 가져오겠다.
+
+        console.log(nodes);
+    </script>
+
+    <hr>
+
+    <ul id = "ul-list">
+        <li>리스트 1</li>
+        <li>리스트 2</li>
+    </ul>
+    <button id = "add-list-btn" onclick="addList()">리스트 추가하기</button>
+
+    <script>
+        function addList(){
+            // ul-list라는 id를 가진 요소 가져오기
+            let ulList = document.getElementById('ul-list');
+
+            // li 요소 생성하기
+            // - <li> </li>
+            let newList = document.createElement("li"); // ul태그라 li로 작성한 것.
+            
+            // 텍스트 노드 추가하기
+            // - <li> 추가된 리스트입니다. </li> 
+            newList.textContent = "추가된 리스트입니다.";
+            ulList.appendChild(newList); // 자식으로 추가하겠다.
+        }
+    </script>
+</body>
+</html>
