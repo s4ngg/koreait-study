@@ -33,7 +33,11 @@
             let q2_num_2 = document.getElementById("q2-num-2").value
             let q2_num_3 = document.getElementById("q2-num-3").value
 
-            msg.textContent = +q2_num_1 + + q2_num_2 +  + q2_num_3; // 값을 호출하는게 .value이며 div,p,span에선 textContent로 사용
+
+            // let sum =  parseInt(q2_num_1) + parseInt(q2_num2_2) + parseInt(q2_num2_3) / parseInt로 int 형변환하여 덧셈도 가능하다.
+            // let msg = document.getElementById("msg")
+            // msg.textContent = sum 으로 가능
+            msg.textContent = +q2_num_1 + +q2_num_2 + +q2_num_3; // 값을 호출하는게 .value이며 div,p,span에선 textContent로 사용
         }
     </script>
 
@@ -43,7 +47,7 @@
     <script>
         // alert("양수입니다."), alert("음수입니다."), alert("0입니다.")
         function q3() {
-            let q3_num = document.getElementById("q3-num").value;
+            let q3_num = parseInt(document.getElementById("q3-num").value);
             if (q3_num > 0){ 
                 alert("양수입니다.")
             }
