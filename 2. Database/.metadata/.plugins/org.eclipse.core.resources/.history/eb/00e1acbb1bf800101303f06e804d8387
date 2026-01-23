@@ -39,10 +39,4 @@ SELECT * FROM employees WHERE first_name LIKE '_di'; -- '_di'는 _갯수만큼 �
 
 SELECT * FROM employees WHERE first_name LIKE 'G__'; -- 'g__'는 _가 2개이기 때문에 g로 시작하고 뒤에 글자가2개 와야함.
 
-SELECT * FROM employees WHERE first_name NOT LIKE 'g__'; -- not은 부정
-
-SELECT * FROM titles WHERE to_date IS NULL; -- 'is null'은 값이 null애들만 조회 // null이 아닌 애들은 'is 'not' null'로 사용한다.
-
--- in // where 00 IN('ddd1','ddd2'); ddd1이랑 ddd2 찾기. // 2개면 or도 가능한디 여러개 쓸거면 in() 사용.
-SELECT * FROM departments d WHERE dept_no IN('d005','d009'); 
-
+SELECT * FROM employees WHERE first_name NOT LIKE 'g__';
