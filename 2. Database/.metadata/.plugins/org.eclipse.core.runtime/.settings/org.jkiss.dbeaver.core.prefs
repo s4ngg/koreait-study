@@ -1,7 +1,9 @@
+connection.closeOnSleep=true
 driver.selector.orderBy=score
 eclipse.preferences.version=1
 org.jkiss.dbeaver.core.confirm.exit=always
 sample.database.canceled=true
+script_dialog_mode=true
 sql.format.keywordCase=UPPER
 tipOfTheDayInitializer.notFirstRun=true
-ui.auto.update.check.time=1769146006958
+ui.auto.update.check.time=1769388200876
