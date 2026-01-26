@@ -87,6 +87,11 @@ public class Ex01_Variable {
 		float floatNumber = longNumber; // 8byte -> 4byte
 		System.out.println(floatNumber);
 		
+		// 강제 형변환 (명시적 형변환)
+		// - 개발자가 직접 형변환을 작성 해줘야하며 하지 않을 경우 컴파일 에러 발생
+		// - 범위가 큰 자료형 -> 범위가 작은 자료형
+		// - 주의 : 큰 자료형에서 작은 자료형으로 변환하기 때문에 데이터 손실 발생할 수 있음
+		
 		long lNumber = 1000000000000L;
 		int iNumber = (int)lNumber;
 		System.out.println(iNumber);
