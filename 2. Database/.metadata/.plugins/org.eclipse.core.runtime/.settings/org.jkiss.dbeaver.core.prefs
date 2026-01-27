@@ -1,4 +1,5 @@
 connection.closeOnSleep=true
+dialog.default.folder=C\:\\study\\2. Database\\General\\Scripts
 driver.selector.orderBy=score
 eclipse.preferences.version=1
 org.jkiss.dbeaver.core.confirm.exit=always
@@ -6,4 +7,4 @@ sample.database.canceled=true
 script_dialog_mode=true
 sql.format.keywordCase=UPPER
 tipOfTheDayInitializer.notFirstRun=true
-ui.auto.update.check.time=1769388200876
+ui.auto.update.check.time=1769473222320

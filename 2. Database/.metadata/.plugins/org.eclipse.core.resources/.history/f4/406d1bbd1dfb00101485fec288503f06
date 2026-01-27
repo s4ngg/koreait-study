@@ -268,17 +268,17 @@ CREATE TABLE member_default (
 INSERT INTO member_default(id) VALUES('test');
 SELECT * FROM member_default;
 #########################
-CREATE TABLE member_pk1(
+CREATE TABLE member_pk(
 	member_pk_id int PRIMARY KEY auto_increment, -- auto_increment는  null이거나 값을 안넣으면 1씩 증가하면서 데이터가 삽입됨.
 	id varchar(50)
 );
 DROP TABLE member_pk;
 -- 중복x + null 금지 2개 합쳐진게 primary key
-INSERT INTO member_pk1 VALUES (1,'test');
-INSERT INTO member_pk1 VALUES (null,'test');
-INSERT INTO member_pk1 VALUES (NULL,'test'); 
+INSERT INTO member_pk VALUES (1,'test');
+INSERT INTO member_pk VALUES (3,'test');
+INSERT INTO member_pk VALUES (NULL,'test'); 
 
-SELECT * FROM member_pk1;
+SELECT * FROM member_pk;
 ##########################################
 CREATE TABLE member_primary(
 	member_primary_id int PRIMARY KEY AUTO_INCREMENT,
@@ -293,7 +293,7 @@ CREATE TABLE board_foreign(
 	CONSTRAINT fk_wriker FOREIGN KEY (writer_id)
 	REFERENCES member_primary(member_primary_id)
 ); 
- 
+
 DROP TABLE board_foreign;
 
 INSERT INTO member_primary(id)
