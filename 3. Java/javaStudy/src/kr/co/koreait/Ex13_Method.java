@@ -17,14 +17,37 @@ public class Ex13_Method {
 		int result1 = calc.add(5, 3);
 		System.out.println(result1);
 		// --------------------------------
-		int sub = calc.sub(6, 3, 2);
-		System.out.println(sub);
-		
+	
 		int mul = calc.mul(2, 3, 5, 6);
 		System.out.println(mul);
 		
 		int div = calc.div(6, 5);
 		System.out.println(div);
+		// ---------------------------------------- 01.30
+		int[] numbers = {100,200,300,400};
+		
+		int add = calc.add(1, 2);
+		int sum = calc.sub(numbers);
+		System.out.println(sum);
+		
+		System.out.println(add);
+		// -----------------------------------------------------
+		// -----------------------------------------------------
+		
+//		Ex13_2_Person p = new Ex13_2_Person();
+//		
+//		String name = p.introduce();
+//		int age = p.sayAge(10);
+		
+		
+		// ---------------- BankAccount;
+		Ex13_3_BankAccount ba = new Ex13_3_BankAccount();
+		ba.deposit(5000); 
+		ba.withdraw(3000);
+	    String cb = ba.checkBalance();	
+	    System.out.println(cb);
+		
+		
 		
 	}
 
