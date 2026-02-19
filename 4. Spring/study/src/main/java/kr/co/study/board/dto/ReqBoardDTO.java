@@ -1,5 +1,9 @@
 package kr.co.study.board.dto;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +16,18 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class ReqBoardDTO {
+	private Long id;
 	private String category;
 	private String title;
 	private String content;
 }
+
+
+
+
+
+
+
+
+
+

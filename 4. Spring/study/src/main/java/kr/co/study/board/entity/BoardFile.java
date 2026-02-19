@@ -2,74 +2,61 @@ package kr.co.study.board.entity;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import kr.co.study.member.entity.Member;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Board {
-	@Id // PK 지정
-	@GeneratedValue(strategy=GenerationType.IDENTITY) // auto_increment
+@Builder
+public class BoardFile {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	// 게시판 종류 구분
-	//  - NOTICE : 공지사항
-	//  - FREE : 자유게시판
-	private String boardType;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "board_id")
+	private Board board;
 	
-	private String category;
+	@Column(nullable = false, length = 255)
+	private String originalFileName;
 	
-	private Integer viewCount;
+	@Column(nullable = false, length = 2555, unique = true)
+	private String storedFileName;
 	
-	private String title;
+	@Column(length = 100)
+	private String contentType;
 	
-	@Lob // 대용량 데이터를 의미
-	private String content;
+	@Column(nullable = false)
+	private Long fileSize;
 	
-	@ManyToOne // (Board 엔티티) N : 1 (Member 엔티티) 
-	@JoinColumn(name="writer_id") // 실제 테이블의 FK 컬럼명
-	private Member writer;
+	@Column(nullable = false, length = 500)
+	private String filePath;
 	
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 	
-	// 저장되기 전 자동 호출
 	@PrePersist
 	public void prePersist() {
 		this.createdAt = LocalDateTime.now();
 		this.updatedAt = LocalDateTime.now();
 	}
 	
-	// 수정되기 전 자동 호출
 	@PreUpdate
 	public void preUpdate() {
 		this.updatedAt = LocalDateTime.now();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

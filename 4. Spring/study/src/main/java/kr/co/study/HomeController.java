@@ -7,16 +7,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller 
-public class HomeController { 
+@Controller	
+public class HomeController {
 	
-	@RequestMapping("/") 
+	@RequestMapping("/")
 	public String goHome(Model model) {
-		model.addAttribute("name", "홍길동"); // name = Key , 홍길동 = Value 
+		model.addAttribute("name", "홍길동");
 		model.addAttribute("message", "<strong>안녕하세요</strong>");
 		
-		List<String> items = Arrays.asList("item1","item2","item3");
+		List<String> items = Arrays.asList("item1", "item2", "item3");
+		
 		model.addAttribute("items", items);
-		return "index"; // index.html을 실행하겠다.
+		return "index";
 	}
 }
+ 
+
+
+
+
+
+
+
+
+
+
+
+

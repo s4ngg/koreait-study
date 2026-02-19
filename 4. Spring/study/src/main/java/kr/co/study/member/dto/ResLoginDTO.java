@@ -16,8 +16,7 @@ public class ResLoginDTO {
 	private String userId;
 	private String userName;
 	private String email;
-	
-	private LocalDateTime createdAt;
+
+	private LocalDateTime createdAt; 
 	private LocalDateTime updatedAt;
-	
 }
