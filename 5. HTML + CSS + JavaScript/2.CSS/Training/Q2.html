@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            background-color: rgb(211, 227, 233);
+        }
+        .child {
+            width: 99%;
+            border: 1px solid #ddd; 
+            position: relative;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgb(245, 239, 239);
+        }
+        .gcolor{
+            color: green;
+            font-weight: bold;
+        }
+
+        .ycolor{
+            color: yellowgreen;
+            font-weight: bold;
+        }
+
+        .rcolor{
+            color: red;
+            font-weight: bold
+        }
+        .enroll-link {
+            color: blue;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class = "parent">
+    <h1>프로그래밍 강의 목록</h1>
+    <p>수강하고 싶은 강의를 선택하세요.</p>
+
+    <section>
+        <div class="child">
+            <h3>HTML & CSS 입문</h3>            
+            <p>난이도: <span class="gcolor"> 초급</span></p>
+            <a href="#" class="enroll-link">수강 신청</a>
+        </div>
+
+        <div class="child">
+            <h3>Java 백엔드 개발</h3>
+            <p>난이도: <span class="ycolor">중급</span></p>
+            <a href="#" class="enroll-link">수강 신청</a>
+        </div>
+
+        <div class="child">
+            <h3>Spring Boot 실전 프로젝트</h3>
+            <p>난이도 : <span class ="rcolor"> 고급</span></p>
+            <a href="#" class="enroll-link">수강 신청</a>
+        </div>
+    </section>
+</body>
+</html>

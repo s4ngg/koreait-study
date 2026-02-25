@@ -1,0 +1,27 @@
+.th_color{
+    background-color: cornflowerblue;
+}
+
+.tb_color{
+    background-color:aliceblue;
+}
+
+.wait:hover{
+    cursor: wait;
+}
+
+.in{
+    color : red;
+}
+
+.out{
+    color : blue;
+}
+
+.fontcenter{
+    text-align: center;
+}
+
+.boder-collapse{
+    border-collapse: collapse;
+}
