@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* header 부분 */
+        header{
+            color:white;
+            background-color: #111;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;  /* 상하 15px, 좌우 30px */
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .logo {
+            padding-left: 20px;
+                }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: #f4f4f4;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            /* 3열: 33%에서 gap 만큼 빼기 */
+            flex-basis: calc(33.333% - 14px);
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MyCompany</div>
+        <div class="menu">
+            <p>Home</p>
+            <p>About</p>
+            <p>Service</p>
+            <p>Contact</p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="card"><p>Service 1</p></div>
+        <div class="card"><p>Service 2</p></div>
+        <div class="card"><p>Service 3</p></div>
+        <div class="card"><p>Service 4</p></div>
+        <div class="card"><p>Service 5</p></div>
+        <div class="card"><p>Service 6</p></div>
+        </div>
+    </div>
+</body>
+</html>
