@@ -1,6 +1,6 @@
-import { useState } from "react";
 import Header from "../components/Header";
-import { registerMemberMutation } from "../query/registerMemberMutation"
+import {useState} from "react";
+import {registerMemberMutation} from "../query/registerMemberMutation"
 
 function Register() {
     const registerMutation = registerMemberMutation();
@@ -9,9 +9,9 @@ function Register() {
         userName: '',
         userId: '',
         email: '',
-        password:'',
-        passwordCheck:''
-    });
+        password: '',
+        passwordCheck: '' 
+    }); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,12 +22,12 @@ function Register() {
         console.log(formData);
     }
 
-    const handleResister = (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
 
         // TanStack Query 호출
         registerMutation.mutate(formData);
-    }
+    } 
 
     return (
         <>
@@ -35,13 +35,14 @@ function Register() {
             <div className="container">
                 <div className="form-card">
                     <h2>회원가입</h2>
-                    <form onsubmit={handleResister}>
+                    <form onSubmit={handleRegister}>
                         <div className="form-group">
                             <label>이름</label>
-                            <input type="text" placeholder="이름을 입력하세요" 
-                            required="" 
-                            name="userName"
-                            onChange={handleChange}/>
+                            <input type="text" 
+                                    placeholder="이름을 입력하세요" 
+                                    required=""
+                                    name="userName"
+                                    onChange={handleChange}/>
                         </div>
                         <div className="form-group">
                             <label>아이디</label>
@@ -50,14 +51,16 @@ function Register() {
                                 placeholder="사용할 아이디를 입력하세요"
                                 required=""
                                 name="userId"
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                            />
                         </div>
                         <div className="form-group">
                             <label>이메일</label>
-                            <input type="email" placeholder="이메일을 입력하세요" 
-                            required=""
-                            name="email"
-                            onChange={handleChange}/>
+                            <input type="email" 
+                                    placeholder="이메일을 입력하세요" 
+                                    required="" 
+                                    name="email"
+                                    onChange={handleChange}/>
                         </div>
                         <div className="form-group">
                             <label>비밀번호</label>
@@ -98,6 +101,8 @@ function Register() {
                 </div>
             </div>
         </>
+
+
     )
 }
 
