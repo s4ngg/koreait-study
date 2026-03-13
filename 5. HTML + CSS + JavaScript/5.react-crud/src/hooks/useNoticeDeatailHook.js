@@ -27,7 +27,7 @@ export const useNoticeDetailHook = () => {
     }
     // 목록으로 돌아가기
     const goToList = () => {
-        navigate('/notice')
+        navigate('/notice/list')
     }
 
     // 수정 페이지로 이동

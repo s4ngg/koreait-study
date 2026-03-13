@@ -6,8 +6,11 @@ import org.springframework.stereotype.Service;
 
 import kr.co.restStudy.exception.MemberException;
 import kr.co.restStudy.member.dto.ReqLoginDTO;
+import kr.co.restStudy.member.dto.ReqMemberUpdateDTO;
+import kr.co.restStudy.member.dto.ReqPasswordChangeDTO;
 import kr.co.restStudy.member.dto.ReqRegisterDTO;
 import kr.co.restStudy.member.dto.ResLoginDTO;
+import kr.co.restStudy.member.dto.ResMemberDTO;
 import kr.co.restStudy.member.entity.Member;
 import kr.co.restStudy.member.repository.MemberRepository;
 import kr.co.restStudy.member.service.MemberService;
@@ -82,7 +85,47 @@ public class MemberServiceImpl implements MemberService {
 		return response;
 		
 	} 
+	
+	@Override
+	public ResMemberDTO getMemberInfo(Long id) {
+		Member member = memberRepository.findById(id).orElse(null);
+		
+		if(member == null) return null;
+		
+		return ResMemberDTO.builder()
+				.id(member.getId())
+				.userId(member.getUserId())
+				.userName(member.getUserName())
+				.email(member.getEmail())
+				.build();
+	}
 
+	@Override
+	public void updateMemberInfo(Long id, ReqMemberUpdateDTO request) {
+		Member member = memberRepository.findById(id).orElse(null);
+		
+		if (member == null) return;
+		
+		member.setUserName(request.getUserName());
+		member.setEmail(request.getEmail());
+		
+		memberRepository.save(member);
+	}
+	
+	@Override
+	public void changePassword(Long id, ReqPasswordChangeDTO request) {
+		Member member = memberRepository.findById(id).orElse(null);
+		
+		if (member == null) return;
+		
+		if (!passwordEncoder.matches(request.getCurrentPassword(), member.getPassword())) {
+			System.out.println("현재 비밀번호와 일치하지 않습니다.");
+			return;
+		}
+		
+		member.setPassword(passwordEncoder.encode(request.getNewPassword()));
+		memberRepository.save(member);
+	}
 }
 
 

@@ -3,6 +3,7 @@ package kr.co.restStudy.member.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpSession;
 import kr.co.restStudy.member.dto.ReqLoginDTO;
+import kr.co.restStudy.member.dto.ReqMemberUpdateDTO;
+import kr.co.restStudy.member.dto.ReqPasswordChangeDTO;
 import kr.co.restStudy.member.dto.ReqRegisterDTO;
 import kr.co.restStudy.member.dto.ResLoginDTO;
+import kr.co.restStudy.member.dto.ResMemberDTO;
 import kr.co.restStudy.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 
@@ -66,5 +70,37 @@ public class MemberController {
 
 		return new ResponseEntity<ResLoginDTO>(loginUser, HttpStatus.OK);
 	}
+	
+	@GetMapping
+	@Operation(summary = "회원정보 조회", description = "로그인한 회원의 정보를 조회합니다.")
+	public ResponseEntity<ResMemberDTO> getMemberInfo(HttpSession session) {
+	    ResLoginDTO loginUser = (ResLoginDTO) session.getAttribute("LOGIN_USER");
+	    if (loginUser == null) {
+	        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	    }
+	    ResMemberDTO response = memberService.getMemberInfo(loginUser.getId());
+	    return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 
+	@PatchMapping
+	@Operation(summary = "회원정보 수정", description = "로그인한 회원의 이름, 이메일을 수정합니다.")
+	public ResponseEntity<String> updateMemberInfo(@RequestBody ReqMemberUpdateDTO request, HttpSession session) {
+	    ResLoginDTO loginUser = (ResLoginDTO) session.getAttribute("LOGIN_USER");
+	    if (loginUser == null) {
+	        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	    }
+	    memberService.updateMemberInfo(loginUser.getId(), request);
+	    return new ResponseEntity<>("OK", HttpStatus.OK);
+	}
+
+	@PatchMapping("/password")
+	@Operation(summary = "비밀번호 변경", description = "로그인한 회원의 비밀번호를 변경합니다.")
+	public ResponseEntity<String> changePassword(@RequestBody ReqPasswordChangeDTO request, HttpSession session) {
+	    ResLoginDTO loginUser = (ResLoginDTO) session.getAttribute("LOGIN_USER");
+	    if (loginUser == null) {
+	        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	    }
+	    memberService.changePassword(loginUser.getId(), request);
+	    return new ResponseEntity<>("OK", HttpStatus.OK);
+	}
 }

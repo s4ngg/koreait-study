@@ -42,3 +42,27 @@ export const noticeDeleteApi = async (postId) =>{
     })
     return response.data;
 }
+
+export const noticeCreateApi = async (formData) => {
+    const  response = await axiosInstance.post("/api/board/notice",
+                                                formData,
+                                                {
+                                                    withCredentials: true,
+                                                    headers: {
+                                                        "Content-Type": "multipart/form-data"
+                                                    }
+                                                }
+    )
+
+    return response.data;
+}
+
+export const noticeEditApi = async (postId, formData) => {
+    const response = await axiosInstance.patch(`/api/board/notice/${postId}`, formData, {
+        withCredentials: true,
+        headers: {
+            'Content-Type': 'multipart/form-data'  // ✅ 추가!
+        }
+    })
+    return response.data;
+}

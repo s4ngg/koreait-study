@@ -1,8 +1,11 @@
 package kr.co.restStudy.member.service;
 
 import kr.co.restStudy.member.dto.ReqLoginDTO;
+import kr.co.restStudy.member.dto.ReqMemberUpdateDTO;
+import kr.co.restStudy.member.dto.ReqPasswordChangeDTO;
 import kr.co.restStudy.member.dto.ReqRegisterDTO;
 import kr.co.restStudy.member.dto.ResLoginDTO;
+import kr.co.restStudy.member.dto.ResMemberDTO;
 
 /**
  * 회원 도메인의 핵심 비즈니스 로직을 정의하는 서비스 인터페이스
@@ -37,6 +40,11 @@ public interface MemberService {
 	 * @param request 사용자가 입력한 로그인 정보(userId, password)
 	 */
 	ResLoginDTO login(ReqLoginDTO request);
+	
+	// 회원정보
+	ResMemberDTO getMemberInfo(Long id);
+	void updateMemberInfo(Long id, ReqMemberUpdateDTO request);
+	void changePassword(Long id, ReqPasswordChangeDTO request);
 }
 
 

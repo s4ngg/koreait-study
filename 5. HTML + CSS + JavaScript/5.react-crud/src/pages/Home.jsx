@@ -4,7 +4,6 @@ function Home() {
     return (
         <>
             <Header />
-
             <div className="container">
                 <h1 style={{ marginBottom: "1rem" }}>
                     Spring 학습 플랫폼에 오신 것을 환영합니다

@@ -42,3 +42,27 @@ export const checkMemberApi = async() => {
     })
     return response.data;
 }
+
+export const memberInfoApi = async() => {
+
+    const response = await axiosInstance.get(`/api/member`,{
+        withCredentials: true
+    })
+    return response.data;
+}
+
+export const memberUpdateApi = async(formData) => {
+    
+    const response = await axiosInstance.patch('/api/member', formData, {
+        withCredentials: true
+    })
+    return response.data;
+}
+
+export const memberPasswordApi = async(formData) => {
+
+    const response = await axiosInstance.patch('/api/member/password', formData, {
+        withCredentials: true
+    })
+    return response.data;
+}

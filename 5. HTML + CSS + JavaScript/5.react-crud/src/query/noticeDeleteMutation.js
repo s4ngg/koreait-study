@@ -10,9 +10,12 @@ export const useNoticeDeleteMutation = () => {
     return useMutation({
         mutationFn: (postId) => noticeDeleteApi(postId),
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['noticeList'] });
+            queryClient.invalidateQueries({ 
+                queryKey: ['noticeList'] 
+            });
+            
             alert('게시글이 삭제되었습니다.');
-            navigate('/notice'); 
+            navigate('/notice/list'); 
         },
         onError: (err) => {
             alert('삭제 중 오류가 발생했습니다.');

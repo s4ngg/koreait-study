@@ -4,6 +4,9 @@ import Register from "./pages/Register.jsx";
 import Login from './pages/Login.jsx'
 import NoticeList from "./pages/NoticeList.jsx";
 import NoticeDetail from "./pages/NoticeDetail.jsx";
+import NoticeWrite from "./pages/NoticeWrite.jsx";
+import NoticeEdit from "./pages/NoticeEdit.jsx";
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/notice/list" element={<NoticeList />} />
         <Route path="/notice/detail/:id" element={<NoticeDetail />} />
+        <Route path="/notice/write" element={<NoticeWrite />} />
+        <Route path="/notice/edit/:id" element={<NoticeEdit />} />
+        <Route path="/profile" element={<MyPage />} />
       </Routes>
     </Router>
   )
