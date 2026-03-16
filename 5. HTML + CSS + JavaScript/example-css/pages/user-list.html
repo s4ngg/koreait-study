@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 목록</title>
+    <link rel="stylesheet" href="../css/user-list.css">
+</head>
+
+<body>
+
+    <!-- 공통 헤더 -->
+    <div id="header-wrap"></div>
+
+    <div class="layout">
+
+        <!-- 좌측 사이드 메뉴 -->
+        <aside class="sidebar">
+            <nav>
+                <a href="user-list.html" class="nav-item active">회원 목록</a>
+            </nav>
+        </aside>
+
+        <!-- 우측 컨텐츠 영역 -->
+        <main class="content">
+            <h2 class="page-title">회원 목록</h2>
+
+            <div class="table-wrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>이름</th>
+                            <th>이메일</th>
+                            <th>상세</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>홍길동</td>
+                            <td>hong@example.com</td>
+                            <td>
+                                <button class="btn-view" type="button" onclick="goDetail(1)">보기</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/user-list.js"></script>
+</body>
+
+</html>
