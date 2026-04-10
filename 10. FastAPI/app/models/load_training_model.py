@@ -9,11 +9,21 @@ X = np.array([1,2,3,4,5], dtype="float")
 Y = np.array([50,55,65,70,80], dtype="float")
 
 # 2. 모델 생성
+#   - Sequential : 레이어를 쌓는 가장 기본적인 모델 구조
+#   - Dense(1) : 레이어를 1개만 사용하겠다. (출력 노드 1개, 결과값도 1개)
+#   - input_shape=(1,) : 입력값을 1개만 받겠다.
+#   - y = Wx + b
+#    > W : weight (가중치)
+#    > b : bias (편향치)
 model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(units=1, input_shape=(1,), activation="sigmoid"),
 ])
 
 # 3. 컴파일 (학습 과정)
+#   - compile : "학습을 어떻게 할꺼냐" 정의하는 단계
+#   - optimizer : 어떤 알고리즘을 사용할지 정함
+#       > learning_rate=0.01 : 한번 업데이트할 때 마다 얼마나 이동할지
+#   - loss : 예측값과 실제값의 차이를 제곱해서 평균낸 값
 model.compile(
     optimizer=tf.keras.optimizers.SGD(learning_rate=0.01),
     loss="mse"
@@ -23,14 +33,15 @@ model.compile(
 epochs = int(input("학습 횟수 입력 : "))
 
 # 5. 학습 진행 + 로그 출력
+
 for epoch in range(epochs):
-    history = model.fit(X, Y, epochs=1, verbose=0)
+    history = model.fit(X, Y, epochs=1, verbose=0) # 실제 학습하는 부분
 
     loss = history.history["loss"][0]
 
     w, b = model.layers[0].get_weights()
 
-    print(f"Loss: {loss:.4f }")
+    print(f"Loss: {loss:.4f}")
     print(f"Weights: {w}")
     print(f"Bias: {b}")
     print("-"*30)
